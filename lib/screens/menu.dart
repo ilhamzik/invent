@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:invent/widgets/left_drawer.dart';
+import 'package:invent/widgets/shop_card.dart';
 
 class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
@@ -15,13 +17,11 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             'InventTtTTTTT',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
           ),
           backgroundColor: Colors.cyan.shade300,
+          foregroundColor: Colors.white,
         ),
+        drawer: const LeftDrawer(),
         body: SingleChildScrollView(
           // Widget wrapper yang dapat discroll
           child: Padding(
