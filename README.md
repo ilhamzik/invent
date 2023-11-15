@@ -44,3 +44,70 @@ Contoh Penggunaan: Cocok untuk bagian UI yang membutuhkan interaksi pengguna ata
 - Ubah widget halaman dari stateful menjadi stateless. Modifikasi konstruktor dan tambahkan daftar produk.
 - Tampilkan kartu produk, buat widget stateless baru dengan nama ShopCard untuk menampilkan kartu produk. Di dalam ShopCard, gunakan InkWell untuk membuat area responsif terhadap sentuhan pengguna.
 - Saat tombol ditekan, munculkan Snackbar dengan pesan yang sesuai.
+</details>
+
+## Tugas 2
+
+<details>
+<summary><b>Details</b></summary>
+
+### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+- `Navigator.push()` menambahkan halaman baru ke dalam stack navigasi, dan menumpuk halaman baru di atas halaman yang saat ini ditampilkan sehingga terdapat opsi kembali untuk memudahkan pengguna untuk kembali ke page sebelumnya. contoh:
+```dart
+Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context) => const ShopFormPage(),
+));
+``` 
+potongan kode tersebut mengarahkan tombol tambah item pada home page agar berpindah ke halaman form dan memiliki tombol kembali karena page sebelumnya tidak di replace
+
+- `Navigator.pushReplacement()` menggantikan halaman saat ini dengan halaman tujuan, sehingga tidak ada opsi untuk kembali.
+ ``` dart
+Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+        builder: (context) => const ShopFormPage(),
+));
+``` 
+potongan kode tersebut memungkinkan user untuk pindah ke page tujuan dengan cara menggantikan page sebelumnya
+
+### Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing! 
+- Widget Container berfungsi untuk mengelola, mempercantik, dan mengumpulkan widget lain, serta dapat digunakan untuk mengatur berbagai properti seperti margin, padding, warna latar, dan lainnya.
+
+- Row dan Column memiliki peran masing-masing; Row digunakan untuk menyusun widget secara horizontal, sedangkan Column digunakan untuk menyusun widget secara vertikal.
+
+- ListView berguna untuk menampilkan daftar widget yang dapat di-scroll, seperti daftar item atau menu, memungkinkan tampilan konten yang melebihi ukuran layar.
+
+- Expanded digunakan untuk mengisi ruang kosong yang tersedia dalam widget induk, memberikan fleksibilitas dalam distribusi ruang pada antarmuka.
+
+- Stack digunakan untuk menempatkan widget satu di atas yang lain, memungkinkan tumpukan dan tumpang tindih antara widget dalam Stack.
+
+- GridView berguna untuk menampilkan data dalam bentuk grid atau matriks, cocok untuk menampilkan banyak item dengan tata letak teratur.
+
+### Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+- yang saya pakai pada tugas ini ini adalah `TextFormField()` yang menjadi *child* dari class `Form()`. `TextFormField()` digunakan karena input yang dibutuhkan pada tugas ini adalah teks dan bilangan bulat. teks diambil langsung dari nilai pada hasil input `TextFormField()`, sementara bilangan bulat diambil dari nilai pada hasil input `TextFormField()` yang di *parse* ke bilangan bulat untuk divalidasi diambil nilainya.
+
+### Bagaimana penerapan clean architecture pada aplikasi Flutter?
+- Lapisan Fitur mencakup pengaturan antarmuka pengguna (UI) dan kontrol event menggunakan widget Flutter.
+- Lapisan Domain berfokus pada Entities, Use Cases, dan Repository Interfaces, yang menitikberatkan pada aturan bisnis. 
+- Lapisan Data bertanggung jawab atas pengambilan data dan implementasi repository. 
+- Resources dan Shared Library menyediakan aset dan komponen yang dapat digunakan kembali. 
+- Pemisahan Logika Bisnis memisahkan logika bisnis dari presentasi dan data. 
+- Dependency Injection menghubungkan lapisan domain dan data. 
+- Kode yang Mudah Dimengerti menggunakan nama kelas dan metode yang jelas untuk navigasi yang mudah. 
+- Tes Unit digunakan untuk memastikan kebenaran logika bisnis. 
+- Keseluruhan pendekatan ini sederhana namun efektif, dengan fokus pada pengembangan dan pemeliharaan yang mudah.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+- Buat form untuk mendaftarkan item, filenya bernama shoplist_form.dart dan letakan didalam folder lib.
+- Setelah itu, integrasi tiga elemen input yang diinginkan soal, yaitu nama, amount, dan deskripsi.
+- Tambahkan tombol save dengan cara menyertakan kode tambahan pada _ShopFormPageState di shoplist_form.dart, dalam bagian return Scaffold(...).
+- Setelah itu, buat beberapa aturan untuk validasi input. 
+- Di _ShopFormPageState pada shoplist_form.dart, di setiap child: TextFormField(...), tambahkan validasi ini untuk memastikan tidak ada field kosong.
+- Di bagian yang sama, lakukan validasi tipe data pada setiap TextFormField untuk menyesuaikan tipe elemen yang diinput dengan yang diminta model.
+- Buat navigasi untuk ke halaman utama, buka file menu.dart, pada MyHomePage di bagian return Scaffold(...), sertakan kode untuk navigasi ke halaman formulir.
+- Di _ShopFormPageState pada shoplist_form.dart, di bagian child: Column(...) dan Align(...), tambahkan kode untuk menampilkan pop-up.
+- Buat drawer dengan opsi minimal Home Page dan Tambah Item. pada left_drawer.dart yang sudah dibuat, pada LeftDrawer, sertakan kode untuk drawer dengan dua opsi ini(halaman utama dan tambah item).
+
+</details>

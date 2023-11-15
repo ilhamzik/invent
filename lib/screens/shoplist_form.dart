@@ -11,7 +11,7 @@ class ShopFormPage extends StatefulWidget {
 class _ShopFormPageState extends State<ShopFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _name = "";
-  int _price = 0;
+  int _amount = 0;
   String _description = "";
   @override
   Widget build(BuildContext context) {
@@ -36,8 +36,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Nama Produk",
-                    labelText: "Nama Produk",
+                    hintText: "Product Name",
+                    labelText: "Product Name",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -59,15 +59,15 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Harga",
-                    labelText: "Harga",
+                    hintText: "Amount",
+                    labelText: "Amount",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _price = int.parse(value!);
+                      _amount = int.parse(value!);
                     });
                   },
                   validator: (String? value) {
@@ -85,8 +85,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Deskripsi",
-                    labelText: "Deskripsi",
+                    hintText: "Description",
+                    labelText: "Description",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -126,7 +126,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                       CrossAxisAlignment.start,
                                   children: [
                                     Text('Nama: $_name'),
-                                    Text('Harga: $_price'),
+                                    Text('Amount: $_amount'),
                                     Text('Deskripsi: $_description'),
                                   ],
                                 ),

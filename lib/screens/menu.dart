@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invent/widgets/left_drawer.dart';
 import 'package:invent/widgets/shop_card.dart';
+import 'package:invent/screens/shoplist_form.dart';
 
 class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
@@ -84,10 +85,11 @@ class InventoryCard extends StatelessWidget {
         // Area responsive terhadap sentuhan
         onTap: () {
           // Memunculkan SnackBar ketika diklik
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ShopFormPage(),
+          ));
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text
