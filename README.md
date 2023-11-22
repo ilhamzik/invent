@@ -111,3 +111,91 @@ potongan kode tersebut memungkinkan user untuk pindah ke page tujuan dengan cara
 - Buat drawer dengan opsi minimal Home Page dan Tambah Item. pada left_drawer.dart yang sudah dibuat, pada LeftDrawer, sertakan kode untuk drawer dengan dua opsi ini(halaman utama dan tambah item).
 
 </details>
+
+## Tugas 3
+
+<details>
+<summary><b>Details</b></summary>
+
+#### Mengakses Data JSON Tanpa Membuat Model 
+- **Kemungkinan dan Pendekatan:** 
+  - Data JSON dapat diakses secara langsung tanpa perlu membuat model khusus dalam berbagai bahasa pemrograman seperti Python, JavaScript, atau Java. Ini memungkinkan interaksi dengan struktur data seperti dictionaries, objects, atau hashmaps.
+- **Perbandingan Antara Menggunakan dan Tidak Menggunakan Model:** 
+  - **Tanpa Model:**
+    - Memberikan fleksibilitas dalam penanganan data dengan struktur yang berubah-ubah.
+    - Proses implementasi menjadi lebih mudah dan cepat.
+    - Cocok untuk berinteraksi dengan API yang menghasilkan berbagai jenis respons.
+  - **Dengan Model:**
+    - Memperkuat validasi data dan membuat kode lebih terstruktur.
+    - Memudahkan pemahaman dan perawatan kode, terutama untuk proyek besar.
+    - Meningkatkan keamanan, seperti dalam mencegah injeksi data yang tidak diinginkan.
+
+#### Fungsi `CookieRequest` dan Pentingnya dalam Aplikasi Flutter 
+- **Fungsi Utama `CookieRequest`:**
+  - Digunakan untuk autentikasi dan pengelolaan sesi pengguna.
+  - Menyimpan preferensi pengguna, seperti tema atau pengaturan lokal.
+  - Memfasilitasi pelacakan pengguna untuk kebutuhan analitik.
+- **Alasan Pentingnya Berbagi Instance `CookieRequest`:**
+  - Menjamin konsistensi sesi pengguna melintasi berbagai permintaan HTTP.
+  - Menghindari duplikasi dalam pengelolaan cookie dan memudahkan pembaruan.
+  - Meningkatkan keamanan dalam penanganan cookie, terutama yang bersifat sensitif.
+  - Mempermudah proses debugging dan pemeliharaan dalam aplikasi.
+
+#### Proses Pengambilan dan Penampilan Data JSON di Flutter 
+- **Langkah Pengambilan Data:**
+  - Melakukan permintaan HTTP ke server menggunakan paket http.
+  - Mengonversi data yang diterima ke format JSON.
+  - (Opsional) Membuat model data untuk memetakan JSON ke objek Dart.
+- **Memperbarui dan Menampilkan Data:**
+  - Menggunakan manajemen state seperti setState atau Provider untuk mengupdate UI.
+  - Menampilkan data yang telah diolah menggunakan widget seperti ListView atau Text.
+
+#### Mekanisme Autentikasi dari Flutter ke Django 
+- **Proses Autentikasi:**
+  - Pengguna memasukkan kredensial di aplikasi Flutter.
+  - Aplikasi mengirim data ke server Django melalui permintaan HTTP POST.
+  - Server Django memproses dan memverifikasi kredensial menggunakan sistem autentikasi.
+  - Django mengirimkan respons yang menunjukkan sukses atau gagalnya autentikasi.
+  - Flutter menanggapi respons dengan navigasi ke menu atau menampilkan pesan error.
+
+#### Widget-Widget yang Digunakan dan Fungsinya 
+- **Daftar Widget dan Fungsinya:**
+  - `Provider`: Menyediakan data ke seluruh aplikasi.
+  - `MaterialApp`: Widget dasar untuk desain material.
+  - `Scaffold`: Kerangka dasar untuk layout halaman.
+  - `AppBar`: Bar navigasi atas.
+  - `Container`: Widget untuk mendekorasi dan menyusun elemen lain.
+  - `Column`: Mengatur elemen secara vertikal.
+  - `TextField`: Input teks pengguna.
+  - `SizedBox`: Memberikan jarak antar elemen.
+  - `ElevatedButton`: Tombol interaktif.
+  - `FutureBuilder`: Membuat widget berdasarkan hasil Future.
+  - `ListView.builder`: Membuat daftar item yang bisa di-scroll.
+  - `Text`: Menampilkan teks.
+  - `Padding`: Memberikan padding pada elemen.
+  - `AlertDialog`: Dialog interaktif.
+  - `TextButton`: Tombol berteks.
+  - `Form`: Mengatur state form dan validasinya.
+  - `GlobalKey<FormState>`: Kunci untuk mengidentifikasi state form.
+  - `TextEditingController`: Mengontrol isi teks dalam TextField.
+  - `SnackBar`: Pesan singkat yang muncul di layar.
+  - `Navigator`: Mengelola navigasi antar halaman.
+  - `MaterialPageRoute`: Transisi halaman dengan gaya material.
+  - `LeftDrawer`: Menu samping.
+
+#### Implementasi Langkah Demi Langkah 
+1. **Membuat Halaman Login di Flutter:**
+   - Buat file `login.dart`, ubah `main.dart` untuk merujuk ke halaman login.
+2. **Integrasi Autentikasi Django dengan Flutter:**
+   - Lakukan setup integrasi di proyek Django dan Flutter sesuai panduan.
+3. **Membuat Model Data di Flutter:**
+   - Gunakan Quicktype untuk konversi JSON dari Django menjadi kode Dart.
+4. **Membangun Halaman Daftar Item:**
+   - Implementasikan `list_item.dart` untuk menampilkan daftar item dari JSON.
+5. **Halaman Detail Item:**
+   - Tambahkan navigasi dan tampilan detail item di `item_detail.dart`.
+6. **Menambahkan Tombol Kembali di Halaman Detail:**
+   - Implementasikan tombol kembali di `item_detail.dart` untuk navigasi ke daftar item.
+
+
+</details>
